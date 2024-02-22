@@ -19,7 +19,10 @@ export class examplePage extends HTMLElement {
 
             const something = this.ownerDocument.createElement('h1');
             something.innerText = "Own Scaffolding"
-            this.shadowRoot?.appendChild(something);
+            this.shadowRoot.appendChild(something);
+
+            const exampleComponent = this.ownerDocument.createElement("component-name")
+            this.shadowRoot.appendChild(exampleComponent)
         }
     }
 }
