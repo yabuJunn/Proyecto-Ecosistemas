@@ -44,10 +44,22 @@ element.innerText = "Titulo"
 parentElement.appendChild(element)
 ```
 
-```echo "# ownScaffolding" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/yabuJunn/ownScaffolding.git
-git push -u origin main```
+### Manejo de Git
+
+#### Traer el Proyecto a su repositorio local
+
+Los pasos para traer el proyecto a su carpeta local en su computador son los siguientes:
+
+1. git init
+2. git remote add origin https://github.com/yabuJunn/ownScaffolding.git
+3. git pull 
+4. git checkout -b <nombre de la rama donde se va a trabajar>
+
+### Nombramiento de Commits
+
+Los commits se deben nombrar empezando por alguna de estas palabras:
+1. Creación
+2. Actualización
+3. Borrar
+
+Luego expecificar que se creo, actualizo o se borro.
