@@ -7,6 +7,7 @@ Bienvenidos a nuestro proyecto de ecosistemas.
 4. Carolina Velásquez Velasco
 ## Codigo de Conducta para los Desarrolladores
 El proyecto usa TypeScript como lenguaje principal. Para gestionar los archivos CSS con css-loader usando la función `loadCss(this, styles)`. Tambien usamos componentes que estan alojados en la carpeta de componentes.
+### Estructura del Proyecto
 
 La estructura de las carpetas del proyecto es la siguiente: Se tiene un archivo src donde estan todos los archivos editables de la aplicacion y dentro del dist solo esta el codigo que ejecuta el navegador, nada de la carpeta se edita por exception de su CSS porque aqui podemos editar el body, de resto nada mas.
 
@@ -26,7 +27,24 @@ Dentro de la carpeta src encontramos las carpetas de: Pages, components, resourc
 8. **export.ts:** Es el archivo donde estan los export de todos los componentes que se llaman cuando se importa, asi que no hay necesidad de importar cada componente individualmente. Para importar este archivo creé un atajo, que es importar la funcion `directorioExport()` en el archivo que quiras usar los componentes, luego quitar la parte de `{ directorioExport } from` y dejar solamente `import "export";`. Cada vez que se cree un componente nuevo se debe de colocar en el archivo export.ts, se pone importanto la clase del componente, y cambiar el `import` al `export`. Yo por comodidad coloco adelante del export del componente, en forma comentada, el nombre del custom-element para poder copiar y pegarlo rapidamente. Ejemplo: `export { component } from "./components/exampleComponent/exampleComponent" //component-name`.
 9. **firebaseConfig.ts:** Este es el archivo donde esta la configuracion de firebase.
 10. **Global.d.ts:** Este es el archivo donde se declaran las dependencias globales, en este caso solamente la de CSS.
-````echo "# ownScaffolding" >> README.md
+
+### Manejo de Variables
+
+Los nombres de las variables seran lo mas descriptivas posibles, y si unas variables deoenden de otras, buscar concatenar los nombres de todas las variables, por ejemplo: `const cardContainerTitle`. Se usara cammelCase para los nombres de los varibales, es decir que la primera letra es minuscula y luego cada letra de cada palabra empieza con mayuscula y luego todo minuscula asi: `exampleNameOfaVariable`.
+
+La prioridad es usar constantes `const` cuando se pueda, en los casos que haya que crear una variable modificable, se usará `let`.
+
+### Creación de Elementos
+
+La creacion de elementos HTML se hara directamente desde el JavaScript con el metodo `document.createElement()`, esto con el objettivo de facilitar la colocacion de `addEventListener()`. Cuandos se cree un elemento, primero se guarda en una constante, luego se le añadiran todas las propiedades necesarias y al final se añadira al padre con el metodo `appendChild()`. Ejemplo:
+
+``` 
+const element = owner.document.createElement("h1")
+element.innerText = "Titulo"
+parentElement.appendChild(element)
+```
+
+```echo "# ownScaffolding" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
