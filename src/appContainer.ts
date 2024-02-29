@@ -1,6 +1,8 @@
 import "./export";
 import styles from "./appContainer.css"
 import { loadCss } from "./utilities/styles";
+import { state } from "./store";
+import { ScreensTypes } from "./types/screens";
 
 class AppContainer extends HTMLElement {
     constructor() {
@@ -13,13 +15,15 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        loadCss(this, styles)
-        const help = this.ownerDocument.createElement("h1")
-        help.innerText = "Help"
-        this.shadowRoot?.appendChild(help)
         if (this.shadowRoot) {
-            const examplePage = this.ownerDocument.createElement("example-page")
-            this.shadowRoot.appendChild(examplePage)
+            loadCss(this, styles)
+
+            this.shadowRoot.innerHTML = ""
+            
+            if (state.screen === ScreensTypes.landingPage) {
+                const landingPage = this.ownerDocument.createElement("landing-page")
+                this.shadowRoot.appendChild(landingPage)
+            }
         }
     }
 }

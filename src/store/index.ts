@@ -5,11 +5,10 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.examplePage,
-    logedUser: {
-        name: "Juan",
-        password: "dajuan05"
-    }
+    screen: ScreensTypes.landingPage,
+    insideUser: undefined,
+    outsideUser: undefined,
+    sessionClothes: []
 };
 
 export const dispatch = (action: Action) => {

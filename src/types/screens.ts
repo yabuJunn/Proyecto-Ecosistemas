@@ -1,3 +1,3 @@
 export enum ScreensTypes {
-    "examplePage" = "examplePage",
+    "landingPage" = "landingPage",
 }

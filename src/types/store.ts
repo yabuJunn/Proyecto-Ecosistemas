@@ -13,8 +13,18 @@ export enum Actions {
 
 export interface AppState {
   screen: ScreensTypes
-  logedUser: {
-    name: string,
-    password: string
-  },
+  insideUser: user | undefined
+  outsideUser: user | undefined
+  sessionClothes: Array<clothes>
+}
+
+interface user {
+  id: string,
+  name: string
+}
+
+interface clothes {
+  name: string,
+  id: string,
+  image: string
 }

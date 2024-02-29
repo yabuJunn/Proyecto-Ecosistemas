@@ -51,15 +51,98 @@ parentElement.appendChild(element)
 Los pasos para traer el proyecto a su carpeta local en su computador son los siguientes:
 
 1. git init
-2. git remote add origin https://github.com/yabuJunn/ownScaffolding.git
+2. git remote add origin https://github.com/yabuJunn/Proyecto-Ecosistemas.git
 3. git pull 
 4. git checkout -b <nombre de la rama donde se va a trabajar>
+5. Ahora puedes pushear tu propia rama ya creada, si te da error, recuerda: has git add -A, git commit -m "nombre" y push. Si el push te da error de upStream, pon el comando que te indica la consola.
+**Recuerda nunca pushear algo directamente a la main**
 
-### Nombramiento de Commits
+En caso de error de pull, refusing to merge unrelated histories poner: `git pull origin <branch> --allow-unrelated-histories`
+
+#### Nombramiento de Commits
 
 Los commits se deben nombrar empezando por alguna de estas palabras:
-1. Creación
-2. Actualización
-3. Borrar
+1. Creación (creó)
+2. Actualización (actualizó)
+3. Borrar (se borró)
+4. Añadir (añadió)
 
 Luego expecificar que se creo, actualizo o se borro.
+
+### Fuentes
+En este proyecto la fuente principal es Lato. Para usarla, tenemos que poner este link en el head del HTML:
+```
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+```
+
+Para usarlas las fuentes trae una serie de clases, asi que dependiendo del peso de la fuente añadimos una clase u otra al elemento que le queremos aplicar la fuente:
+```
+.lato-thin {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-semi-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.lato-thin-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.lato-light-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.lato-bold-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.lato-black-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+```
