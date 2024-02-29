@@ -4,11 +4,11 @@ export type Observer = HTMLElement & { render: () => void };
 
 export interface Action {
   type: Actions;
-  payload: string;
+  payload: any
 }
 
 export enum Actions {
-  "EXAMPLE_ACTION" = "EXAMPLE_ACTION",
+  "CHANGE_SCREEN" = "CHANGE_SCREEN",
 }
 
 export interface AppState {

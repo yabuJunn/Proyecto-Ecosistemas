@@ -1,6 +1,9 @@
 import "../../export";
 import styles from "./landingPage.css" //Actualizar la ruta del css para cada componente
 import { loadCss } from "../../utilities/styles";
+import { dispatch } from "../../store";
+import { changeScreen } from "../../store/actions";
+import { ScreensTypes } from "../../types/screens";
 
 export class landingPage extends HTMLElement {
     constructor() {
@@ -65,6 +68,11 @@ export class landingPage extends HTMLElement {
             const scanQrButton = this.ownerDocument.createElement("button")
             scanQrButton.innerText = "Escanear QR"
             scanQRSection.appendChild(scanQrButton)
+            scanQrButton.addEventListener('click', () => {
+                dispatch(
+                    changeScreen(ScreensTypes.scanPage)
+                )
+            })
         }
     }
 }
