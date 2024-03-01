@@ -1,6 +1,8 @@
 import "../../export";
 import styles from "./scanPage.css"
-import { loadCss } from "../../utilities/styles"; 
+import { loadCss } from "../../utilities/styles";
+import { socket } from "../../utilities/serverClientSide";
+import { state } from "../../store";
 
 export class scanPage extends HTMLElement {
     constructor() {
@@ -27,6 +29,16 @@ export class scanPage extends HTMLElement {
             const nextButton = this.ownerDocument.createElement("button")
             nextButton.innerText = "Continuar"
             pageContainer.appendChild(nextButton)
+            nextButton.addEventListener('click', () => {
+                if (codeInput.value !== "") {
+                    socket.emit('enteringRoom', JSON.stringify({
+                        userId: state.userId,
+                        roomId: codeInput.value
+                    }))
+                } else {
+                    alert('Code Input is Empty')
+                }
+            })
         }
     }
 }

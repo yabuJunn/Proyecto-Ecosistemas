@@ -8,7 +8,8 @@ export let state: AppState = {
     screen: ScreensTypes.landingPage,
     insideUser: undefined,
     outsideUser: undefined,
-    sessionClothes: []
+    sessionClothes: [],
+    userId: `${Math.random()}`
 };
 
 export const dispatch = (action: Action) => {

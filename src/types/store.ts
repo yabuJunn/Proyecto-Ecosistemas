@@ -16,7 +16,8 @@ export interface AppState {
   screen: ScreensTypes
   insideUser: user | undefined
   outsideUser: user | undefined
-  sessionClothes: Array<clothes>
+  sessionClothes: Array<clothes>,
+  userId: string
 }
 
 interface user {
