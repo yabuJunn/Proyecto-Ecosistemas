@@ -14,7 +14,9 @@ export let state: AppState = {
 export const dispatch = (action: Action) => {
     const clone = JSON.parse(JSON.stringify(state));
     state = reducer(action, clone);
-    observers.forEach((o) => o.render());
+    if (action.reload === true) {
+        observers.forEach((o) => o.render());
+    }
     console.log(state)
 };
 

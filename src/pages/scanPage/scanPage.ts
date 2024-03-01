@@ -1,6 +1,6 @@
 import "../../export";
 import styles from "./scanPage.css"
-import { loadCss } from "../../utilities/styles";
+import { loadCss } from "../../utilities/styles"; 
 
 export class scanPage extends HTMLElement {
     constructor() {

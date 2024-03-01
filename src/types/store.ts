@@ -4,7 +4,8 @@ export type Observer = HTMLElement & { render: () => void };
 
 export interface Action {
   type: Actions;
-  payload: any
+  payload: any,
+  reload: boolean
 }
 
 export enum Actions {

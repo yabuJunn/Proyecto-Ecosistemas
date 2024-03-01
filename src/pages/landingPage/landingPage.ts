@@ -70,7 +70,7 @@ export class landingPage extends HTMLElement {
             scanQRSection.appendChild(scanQrButton)
             scanQrButton.addEventListener('click', () => {
                 dispatch(
-                    changeScreen(ScreensTypes.scanPage)
+                    changeScreen(ScreensTypes.scanPage, true)
                 )
             })
         }
