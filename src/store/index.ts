@@ -1,5 +1,6 @@
 import { ScreensTypes } from "../types/screens";
 import { Action, AppState, Observer } from "../types/store";
+import { randomString } from "../utilities/randomString";
 import { reducer } from "./reducer";
 
 const observers: Observer[] = [];
@@ -9,7 +10,7 @@ export let state: AppState = {
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
-    userId: `${Math.random()}`
+    userId: randomString(10)
 };
 
 export const dispatch = (action: Action) => {
