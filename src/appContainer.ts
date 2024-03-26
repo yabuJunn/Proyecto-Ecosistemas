@@ -29,6 +29,10 @@ class AppContainer extends HTMLElement {
                     const scanPage = this.ownerDocument.createElement("scan-page")
                     this.shadowRoot.appendChild(scanPage)
                     break;
+                case ScreensTypes.whoAreYouPage:
+                    const whoAreYouPage = this.ownerDocument.createElement("who_are_you-page")
+                    this.shadowRoot.appendChild(whoAreYouPage)
+                    break;
                 default:
                     break;
             }

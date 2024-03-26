@@ -18,7 +18,7 @@ socket.on('responseRoom', (data: string) => {
     console.log(responseRoomJSON)
     if (responseRoomJSON.conection === "prueba") {
         dispatch(
-            changeScreen(ScreensTypes.mainPage, true)
+            changeScreen(ScreensTypes.whoAreYouPage, true)
         )
     } else {
         alert("Room code invalid")
