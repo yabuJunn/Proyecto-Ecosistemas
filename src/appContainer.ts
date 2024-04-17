@@ -33,6 +33,11 @@ class AppContainer extends HTMLElement {
                     const whoAreYouPage = this.ownerDocument.createElement("who_are_you-page")
                     this.shadowRoot.appendChild(whoAreYouPage)
                     break;
+                case ScreensTypes.waitingForOtherPage:
+                    console.log("waiting_for_other-page")
+                    const waitingForOtherPage = this.ownerDocument.createElement("waiting_for_other-page")
+                    this.shadowRoot.appendChild(waitingForOtherPage)
+                    break;
                 default:
                     break;
             }
