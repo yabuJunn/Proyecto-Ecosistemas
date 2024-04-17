@@ -1,5 +1,5 @@
 import { io } from "socket.io-client"; //Importamos el socket cliente
-import { changeScreen } from "../store/actions";
+import { changeScreen, updateRoomId } from "../store/actions";
 import { ScreensTypes } from "../types/screens";
 import { dispatch } from "../store";
 
@@ -16,12 +16,21 @@ interface responseRoomData {
 socket.on('responseRoom', (data: string) => {
     const responseRoomJSON: responseRoomData = JSON.parse(data)
     console.log(responseRoomJSON)
-    if (responseRoomJSON.conection === "prueba") {
+    if (responseRoomJSON.conection === "avilable") {
+        dispatch(
+            updateRoomId(responseRoomJSON.roomId, false)
+        )
         dispatch(
             changeScreen(ScreensTypes.whoAreYouPage, true)
         )
     } else {
         alert("Room code invalid")
+    }
+})
+
+socket.on('updateRoomConnectionResponse', (data) => {
+    if (data.message === "Error on data type's") {
+        alert("Error on types")
     }
 })
 

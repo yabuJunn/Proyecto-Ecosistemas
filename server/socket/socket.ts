@@ -4,6 +4,7 @@ import { app } from "../server"
 import { roomsDatabase } from '../serverDatabase'
 import { Server } from 'socket.io';
 import { createServer } from 'http';
+import { updateRoomConnection, updateRoomConnectionSchema } from './socketDataTypes';
 
 export const httpServer = createServer(app);
 
@@ -20,6 +21,7 @@ const io = new Server(httpServer, {
 io.on('connection', (socket: Socket) => {
     console.log('A user has connected from:')
     console.log(socket.client.request.headers.origin)
+
     socket.on('enteringRoom', (data: any) => {
         console.log("Entering Room")
         const enterinRoomRequestSchema = z.object({
@@ -33,7 +35,7 @@ io.on('connection', (socket: Socket) => {
             if (enteringRoom !== undefined) {
                 socket.emit('responseRoom', JSON.stringify({
                     roomId: enteringRoom.code,
-                    conection: "prueba",
+                    conection: "avilable",
                     message: "Room is avilable"
                 }))
             } else {
@@ -46,5 +48,28 @@ io.on('connection', (socket: Socket) => {
             console.log("Error")
             console.log(enteringRoomParse.error)
         }
+    })
+
+    socket.on('updateRoomConnection', (data: updateRoomConnection) => {
+        const updateRoomConnectionParse = updateRoomConnectionSchema.safeParse(data)
+        if (updateRoomConnectionParse.success) {
+            roomsDatabase.forEach((room) => {
+                if (room.code === updateRoomConnectionParse.data.room) {
+                    if (updateRoomConnectionParse.data.userType === "buyer") {
+                        room.insideUserCode = updateRoomConnectionParse.data.userId
+                    }
+
+                    if (updateRoomConnectionParse.data.userType === "companion") {
+                        room.insideUserCode = updateRoomConnectionParse.data.userId
+                    }
+                }
+            })
+        } else {
+            socket.emit('updateRoomConnectionResponse', JSON.stringify({
+                message: "Error on data type's",
+                error: updateRoomConnectionParse.error
+            }))
+        }
+        console.log(roomsDatabase)
     })
 })

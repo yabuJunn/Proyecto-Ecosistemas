@@ -1,6 +1,10 @@
 import { loadCss } from "../../../utilities/styles";
 import { directorioExport } from "../../../export";
 import styles from "./whoAreYouButton.css"
+import { dispatch, state } from "../../../store";
+import { changeScreen, updateRoomId } from "../../../store/actions";
+import { ScreensTypes } from "../../../types/screens";
+import { socket } from "../../../utilities/serverClientSide";
 
 const enum whoAreYouButtonProperties {
     type = "type"
@@ -50,9 +54,24 @@ export class whoAreYouButton extends HTMLElement {
 
             if (this.properties.type === "buyer") {
                 buttonText.innerText = "Buyer"
+                buttonContainer.addEventListener("click", () => {
+                    dispatch(
+                        changeScreen(ScreensTypes.loadingRoomPage, true)
+                    )
+                    socket.emit('updateRoomConnection', JSON.stringify({
+                        room: state.roomId,
+                        userType: "buyer",
+                        userId: state.userId
+                    }))
+                    alert("Buyer")
+                })
             }
+
             if (this.properties.type === "companion") {
                 buttonText.innerText = "companion"
+                buttonContainer.addEventListener("click", () => {
+                    alert("Companion")
+                })
             }
         }
 

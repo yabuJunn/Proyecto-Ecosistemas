@@ -8,7 +8,7 @@ import { roomType } from "../src/types/rooms"
 //Importamos las bases de datos del modulo que esta en esta misma carpeta
 import { roomsDatabase } from "./serverDatabase"
 import { roomsRouter } from "./routes/rooms"
-import { httpServer} from "./socket/socket"
+import { httpServer } from "./socket/socket"
 
 //Nota de TypeScript
 //Para usar nodemon con typeScript tenemos que istalar esta version de nodemon: npm install --save-dev ts-node nodemon
@@ -25,6 +25,7 @@ app.use(cors()) //Le indico que el servidor use cors
 app.use(express.json()) //Le indico que el servidor use el midleware de express json para que me maneje las pareadas
 
 //Endpoints de Express
+
 app.use('/rooms', roomsRouter)
 
 const port = 5500 //Aqui indico que vamos a usar el puerto 5500 para alojar el servidor, recordar que estamos usando el puerto 3000 para el cliente
