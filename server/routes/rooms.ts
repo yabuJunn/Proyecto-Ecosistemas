@@ -8,3 +8,4 @@ roomsRouter.route('/')
     .get((req: Request, res: Response) => {
         res.send(roomsDatabase)
     })
+    
