@@ -34,8 +34,8 @@ export class waitingForOtherPage extends HTMLElement {
             text.innerText = "En espera a que tu compañero se conecte"
             contentContainer.appendChild(text)
 
-            // const loadingIcon = this.ownerDocument.createElement("loading-icon")
-            // contentContainer.appendChild(loadingIcon)
+            const loadingIcon = this.ownerDocument.createElement("loading-icon")
+            contentContainer.appendChild(loadingIcon)
 
             // const something = this.ownerDocument.createElement('h1');
             // something.innerText = "Own Scaffolding"

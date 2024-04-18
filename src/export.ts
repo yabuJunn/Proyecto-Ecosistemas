@@ -15,4 +15,4 @@ export { whoAreYouButton } from "./components/whoAreYouPage/whoAreYouButton/whoA
 //Waiting for other page
 
 export { waitingForOtherPage } from "./pages/waitngForOtherPage/waitingForOtherPage" // "waiting_for_other-page"
-// export { loadingIcon } from "./components/loadingComponent/loadingComponent"
+export { loadingIcon } from "./components/loadingComponent/loadingComponent" // loading-icon

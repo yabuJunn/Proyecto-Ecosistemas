@@ -28,15 +28,18 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     #contentContainer h3 {
-        font-size: 1.50rem;
+        font-size: 1.25rem;
         color: white;
         font-family: "Lato", sans-serif;
         font-weight: 700;
         font-style: normal;
         margin: 0 0 0 0;
         text-align: center;
+        width: 60%;
+        margin-bottom: 20px;
     }
   }
