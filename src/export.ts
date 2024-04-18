@@ -16,3 +16,7 @@ export { whoAreYouButton } from "./components/whoAreYouPage/whoAreYouButton/whoA
 
 export { waitingForOtherPage } from "./pages/waitngForOtherPage/waitingForOtherPage" // "waiting_for_other-page"
 export { loadingIcon } from "./components/loadingComponent/loadingComponent" // loading-icon
+
+//Successful Conection Page
+
+export { successfulConnectionPage } from "./pages/successfulConnectionPage/successfulConnectionPage"

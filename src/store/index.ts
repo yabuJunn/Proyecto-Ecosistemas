@@ -6,7 +6,7 @@ import { reducer } from "./reducer";
 const observers: Observer[] = [];
 
 export let state: AppState = {
-    screen: ScreensTypes.waitingForOtherPage,
+    screen: ScreensTypes.successfulConnectionPage,
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],

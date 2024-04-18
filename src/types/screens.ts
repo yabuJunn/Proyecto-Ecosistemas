@@ -3,5 +3,6 @@ export enum ScreensTypes {
     "scanPage" = "scanPage",
     "mainPage" = "mainPage",
     "whoAreYouPage" = "whoAreYouPage",
-    "waitingForOtherPage" = "waitingForOtherPage"
+    "waitingForOtherPage" = "waitingForOtherPage",
+    "successfulConnectionPage" = "successfulConnectionPage"
 }
