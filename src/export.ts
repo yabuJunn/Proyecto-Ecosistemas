@@ -21,3 +21,11 @@ export { loadingIcon } from "./components/loadingComponent/loadingComponent" // 
 
 export { successfulConnectionPage } from "./pages/successfulConnectionPage/successfulConnectionPage" // successful_connection-page
 export { successfulIcon } from "./components/successfulComponent/successfulComponent"
+
+// Dressing Room Page
+
+export { dressingRoomPage } from "./pages/dressingRoomPage/dressingRoomPage" // dressing_room-page
+
+//Global components
+
+export { header } from "./components/headerComponent/headerComponent" // header-component

@@ -43,6 +43,11 @@ class AppContainer extends HTMLElement {
                     const successfulConnectionPage = this.ownerDocument.createElement("successful_connection-page")
                     this.shadowRoot.appendChild(successfulConnectionPage)
                     break;
+                case ScreensTypes.dressingRoomPage:
+                    console.log("dressing_room-page")
+                    const dressingRoomPage = this.ownerDocument.createElement("dressing_room-page")
+                    this.shadowRoot.appendChild(dressingRoomPage)
+                    break;
                 default:
                     break;
             }
