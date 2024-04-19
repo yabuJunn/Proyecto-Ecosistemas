@@ -26,7 +26,6 @@ export class dressingRoomPage extends HTMLElement {
             const header = this.ownerDocument.createElement("header-component")
             pageContainer.appendChild(header)
 
-
             const welcomeSection = this.ownerDocument.createElement("div")
             welcomeSection.setAttribute("id", "welcomeSection")
             pageContainer.appendChild(welcomeSection)
@@ -40,16 +39,52 @@ export class dressingRoomPage extends HTMLElement {
             welcomeInformationContainer.appendChild(welcomeInfoTitle)
 
             const welcomeInforSubitle = this.ownerDocument.createElement("p")
-            welcomeInforSubitle.innerText = "Shooping Assistant"
+            welcomeInforSubitle.innerText = "PROBADOR 1"
             welcomeInformationContainer.appendChild(welcomeInforSubitle)
 
-            const scanQRSection = this.ownerDocument.createElement("div")
-            scanQRSection.setAttribute("id", "scanQRSection")
-            pageContainer.appendChild(scanQRSection)
+            const recommendationsSection = this.ownerDocument.createElement("div")
+            recommendationsSection.setAttribute("id", "recommendationsSection")
+            pageContainer.appendChild(recommendationsSection)
 
-            const scanInformation = this.ownerDocument.createElement("p")
-            scanInformation.innerText = "Shooping Assistant es un asistente para los usuarios de la tienda y los probadores. Escanea el código QR del probador para acceder a la sala y comunicarte con tu acompañante. \n También puedes solicitar nuevas prendas y calificarlas."
-            scanQRSection.appendChild(scanInformation)
+            const recommendationsTextDiv = this.ownerDocument.createElement("div")
+            recommendationsTextDiv.setAttribute("id", "recommendationsTextDiv")
+            recommendationsSection.appendChild(recommendationsTextDiv)
+
+            const topSalesTitle = this.ownerDocument.createElement("h4")
+            topSalesTitle.setAttribute("id", "topSalesTitle")
+            topSalesTitle.innerText = "El top 3 de la semana"
+            recommendationsTextDiv.appendChild(topSalesTitle)
+
+            const topSalesText = this.ownerDocument.createElement("p")
+            topSalesText.setAttribute("id", "topSalesText")
+            topSalesText.innerText = "Las prendas favoritas de nuestros clientes"
+            recommendationsTextDiv.appendChild(topSalesText)
+
+            const cardSection = this.ownerDocument.createElement("div")
+            cardSection.setAttribute("id","cardSection")
+            recommendationsSection.appendChild(cardSection)
+
+            const cardDressingRoom1 = this.ownerDocument.createElement("card_dressing_room-component")
+            cardDressingRoom1.setAttribute("img", "/src/assets/jpg/dress_2.png")
+            cardSection.appendChild(cardDressingRoom1)
+
+            const cardDressingRoom2 = this.ownerDocument.createElement("card_dressing_room-component")
+            cardDressingRoom2.setAttribute("img", "/src/assets/jpg/dress_1.png")
+            cardSection.appendChild(cardDressingRoom2)
+
+            const cardDressingRoom3 = this.ownerDocument.createElement("card_dressing_room-component")
+            cardDressingRoom3.setAttribute("img", "/src/assets/jpg/dress_3.png")
+            cardSection.appendChild(cardDressingRoom3)
+
+            const buttonDiv = this.ownerDocument.createElement("div")
+            buttonDiv.setAttribute("id", "buttonDiv")
+            recommendationsSection.appendChild(buttonDiv)
+
+            const Button = this.ownerDocument.createElement("button")
+            Button.innerText = "Solicitar"
+            buttonDiv.appendChild(Button)
+
+            
         }
     }
 }

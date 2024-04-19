@@ -25,6 +25,7 @@ export { successfulIcon } from "./components/successfulComponent/successfulCompo
 // Dressing Room Page
 
 export { dressingRoomPage } from "./pages/dressingRoomPage/dressingRoomPage" // dressing_room-page
+export { cardDressingRoom } from "./components/cardDressingRoomComponent/cardDressingRoomComponent"
 
 //Global components
 
