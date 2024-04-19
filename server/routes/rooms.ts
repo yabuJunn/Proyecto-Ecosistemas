@@ -2,10 +2,9 @@ import { Request, Response } from 'express'
 
 import express from 'express'
 import { roomsDatabase } from '../serverDatabase'
+import { roomsController } from '../controllers/roomsController'
 export const roomsRouter = express.Router()
 
-roomsRouter.route('/')
-    .get((req: Request, res: Response) => {
-        console.log("Rooms")
-        res.send(roomsDatabase)
-    })
+roomsRouter.get('/', roomsController.getAllRooms)
+
+roomsRouter.get('/:id', roomsController.getRoomById)
