@@ -12,18 +12,38 @@ export const roomsService = {
         }
         return data
     },
-    getRoomById: async (id: string) => {
+    getRoomById: async (roomId: string) => {
 
         const { data, error } = await supabase
             .from('Rooms')
-            .select('id, name')
-            .eq('id', id)
+            .select()
+            .eq('id', roomId)
             .maybeSingle()
 
         if (error) {
             throw new Error(error.message)
         }
         return data
+    },
+    updateInsideUserCode: async (roomId: string, insideUserCodeParam: string) => {
+
+        const { error } = await supabase
+            .from('Rooms')
+            .update({ insideUserCode: insideUserCodeParam })
+            .eq('id', roomId)
+        if (error) {
+            throw new Error(error.message)
+        }
+    },
+    updateOutsideUserCode: async (roomId: string, outsideUserCodeParam: string) => {
+
+        const { error } = await supabase
+            .from('Rooms')
+            .update({ outsideUserCode: outsideUserCodeParam })
+            .eq('id', roomId)
+        if (error) {
+            throw new Error(error.message)
+        }
     }
 }
 

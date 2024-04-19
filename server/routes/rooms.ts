@@ -8,3 +8,7 @@ export const roomsRouter = express.Router()
 roomsRouter.get('/', roomsController.getAllRooms)
 
 roomsRouter.get('/:id', roomsController.getRoomById)
+
+roomsRouter.patch('/:id/insideUser/:insideUserCode', roomsController.updateInsideUserCode)
+
+roomsRouter.patch('/:id/outsideUser/:outsideUserCode', roomsController.updateOutsideUserCode)
