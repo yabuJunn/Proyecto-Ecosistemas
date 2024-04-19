@@ -27,7 +27,7 @@ export const roomsController = {
             const id = req.params.id
             const insideUserCode = req.params.insideUserCode
             console.log(id)
-            await roomsService.updateInsideUserCode(id, insideUserCode)
+            await roomsService.updateInsideUserCode(id, req.body.insideUserCode)
             res.send("Ok")
         } catch (error: any) {
             console.error("Error retrieving data from Supabase:", error.message);

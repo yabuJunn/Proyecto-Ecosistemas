@@ -54,22 +54,35 @@ export class whoAreYouButton extends HTMLElement {
 
             if (this.properties.type === "buyer") {
                 buttonText.innerText = "Buyer"
-                buttonContainer.addEventListener("click", () => {
+                buttonContainer.addEventListener("click", async () => {
+                    console.log(state.userId)
+                    await fetch(`http://localhost:5500/rooms/${state.roomId}/insideUser/${state.userId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ insideUserCode: state.userId }),
+                    })
                     dispatch(
-                        changeScreen(ScreensTypes.loadingRoomPage, true)
+                        changeScreen(ScreensTypes.waitingForOtherPage, true)
                     )
-                    socket.emit('updateRoomConnection', JSON.stringify({
-                        room: state.roomId,
-                        userType: "buyer",
-                        userId: state.userId
-                    }))
-                    alert("Buyer")
+                    //alert("Buyer")
                 })
             }
 
             if (this.properties.type === "companion") {
                 buttonText.innerText = "companion"
                 buttonContainer.addEventListener("click", () => {
+                    dispatch(
+                        changeScreen(ScreensTypes.waitingForOtherPage, true)
+                    )
+                    fetch(`http://localhost:5500/rooms/${state.roomId}/outsideUser/${state.userId}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ outsideUserCode: state.userId }),
+                    })
                     alert("Companion")
                 })
             }

@@ -26,21 +26,23 @@ export const roomsService = {
         return data
     },
     updateInsideUserCode: async (roomId: string, insideUserCodeParam: string) => {
-
+        console.log("updateInsideUserCode")
         const { error } = await supabase
             .from('Rooms')
             .update({ insideUserCode: insideUserCodeParam })
             .eq('id', roomId)
+        console.log("Finalizo")
         if (error) {
             throw new Error(error.message)
         }
     },
     updateOutsideUserCode: async (roomId: string, outsideUserCodeParam: string) => {
-
+        console.log("updateOutsideUserCode")
         const { error } = await supabase
             .from('Rooms')
             .update({ outsideUserCode: outsideUserCodeParam })
             .eq('id', roomId)
+        console.log("Finalizo")
         if (error) {
             throw new Error(error.message)
         }
