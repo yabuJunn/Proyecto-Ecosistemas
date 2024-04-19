@@ -9,6 +9,6 @@ roomsRouter.get('/', roomsController.getAllRooms)
 
 roomsRouter.get('/:id', roomsController.getRoomById)
 
-roomsRouter.patch('/:id/insideUser/:insideUserCode', roomsController.updateInsideUserCode)
+roomsRouter.patch('/:id/insideUser/', roomsController.updateInsideUserCode)
 
-roomsRouter.patch('/:id/outsideUser/:outsideUserCode', roomsController.updateOutsideUserCode)
+roomsRouter.patch('/:id/outsideUser/', roomsController.updateOutsideUserCode)

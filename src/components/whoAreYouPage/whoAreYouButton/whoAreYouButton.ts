@@ -54,22 +54,41 @@ export class whoAreYouButton extends HTMLElement {
 
             if (this.properties.type === "buyer") {
                 buttonText.innerText = "Buyer"
-                buttonContainer.addEventListener("click", () => {
+                buttonContainer.addEventListener("click", async () => {
+                    console.log(state.userId)
+                    console.log("Room ID: " + state.roomId)
+                    const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/insideUser`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ insideUserCode: state.userId }),
+                    })
+                    const newDataJson = await response.json()
+                    console.log("New Data:")
+                    console.log(newDataJson)
                     dispatch(
                         changeScreen(ScreensTypes.waitingForOtherPage, true)
                     )
-                    // socket.emit('updateRoomConnection', JSON.stringify({
-                    //     room: state.roomId,
-                    //     userType: "buyer",
-                    //     userId: state.userId
-                    // }))
                     alert("Buyer")
                 })
             }
 
             if (this.properties.type === "companion") {
                 buttonText.innerText = "companion"
-                buttonContainer.addEventListener("click", () => {
+                buttonContainer.addEventListener("click", async () => {
+                    const response = await fetch(`http://localhost:5500/rooms/${state.roomId}/outsideUser/`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ outsideUserCode: state.userId }),
+                    })
+                    const newDataJson = await response.json()
+                    console.log(newDataJson)
+                    dispatch(
+                        changeScreen(ScreensTypes.waitingForOtherPage, true)
+                    )
                     alert("Companion")
                 })
             }

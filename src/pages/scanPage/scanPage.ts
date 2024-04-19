@@ -3,7 +3,7 @@ import styles from "./scanPage.css"
 import { loadCss } from "../../utilities/styles";
 //import { socket } from "../../utilities/serverClientSide";
 import { dispatch, state } from "../../store";
-import { changeScreen } from "../../store/actions";
+import { changeScreen, updateRoomId } from "../../store/actions";
 import { ScreensTypes } from "../../types/screens";
 
 export class scanPage extends HTMLElement {
@@ -38,6 +38,9 @@ export class scanPage extends HTMLElement {
                     const roomData = await response.json()
                     console.log(roomData)
                     if (roomData.data !== null) {
+                        dispatch(
+                            updateRoomId(codeInput.value, false)
+                        )
                         dispatch(
                             changeScreen(ScreensTypes.whoAreYouPage, true)
                         )
