@@ -25,10 +25,11 @@ export const roomsController = {
     updateInsideUserCode: async (req: Request, res: Response) => {
         try {
             const id = req.params.id
-            const insideUserCode = req.params.insideUserCode
+            const insideUserCode = req.body.insideUserCode
+            console.log("Inside User Code: ", insideUserCode)
             console.log(id)
-            await roomsService.updateInsideUserCode(id, req.body.insideUserCode)
-            res.send("Ok")
+            const roomNewData = await roomsService.updateInsideUserCode(id, insideUserCode)
+            res.json(roomNewData)
         } catch (error: any) {
             console.error("Error retrieving data from Supabase:", error.message);
             res.status(500).json({ success: false, error: "Internal Server Error" });
@@ -37,10 +38,10 @@ export const roomsController = {
     updateOutsideUserCode: async (req: Request, res: Response) => {
         try {
             const id = req.params.id
-            const outsideUserCode = req.params.outsideUserCode
+            const outsideUserCode = req.body.outsideUserCode
             console.log(outsideUserCode)
-            await roomsService.updateOutsideUserCode(id, outsideUserCode)
-            res.send("Ok")
+            const roomNewData = await roomsService.updateOutsideUserCode(id, outsideUserCode)
+            res.json(roomNewData)
         } catch (error: any) {
             console.error("Error retrieving data from Supabase:", error.message);
             res.status(500).json({ success: false, error: "Internal Server Error" });
