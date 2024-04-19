@@ -2,9 +2,13 @@ import { Request, Response } from 'express'
 
 import express from 'express'
 import { roomsDatabase } from '../serverDatabase'
+import { roomsController } from '../controllers/roomsController'
 export const roomsRouter = express.Router()
 
-roomsRouter.route('/')
-    .get((req: Request, res: Response) => {
-        res.send(roomsDatabase)
-    })
+roomsRouter.get('/', roomsController.getAllRooms)
+
+roomsRouter.get('/:id', roomsController.getRoomById)
+
+roomsRouter.patch('/:id/insideUser/:insideUserCode', roomsController.updateInsideUserCode)
+
+roomsRouter.patch('/:id/outsideUser/:outsideUserCode', roomsController.updateOutsideUserCode)
