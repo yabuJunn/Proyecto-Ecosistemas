@@ -8,6 +8,11 @@ export const reducer = (action: Action, currentState: AppState): AppState => {
         ...currentState,
         screen: action.payload
       };
+    case Actions.UPDATE_ROOM_ID:
+      return {
+        ...currentState,
+        roomId: action.payload
+      };
     default:
       return currentState;
   }

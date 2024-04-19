@@ -10,7 +10,8 @@ export let state: AppState = {
     insideUser: undefined,
     outsideUser: undefined,
     sessionClothes: [],
-    userId: randomString(10)
+    userId: randomString(10),
+    roomId: undefined
 };
 
 export const dispatch = (action: Action) => {

@@ -14,5 +14,11 @@ export const roomsDatabase:Array<roomType>  = [
         code: "jfksob",
         insideUserCode: undefined,
         outsideUserCode: undefined
-    }
+    },
+    {
+        name: "Room 3",
+        code: "aaaaaa",
+        insideUserCode: undefined,
+        outsideUserCode: undefined
+    },
 ]

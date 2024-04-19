@@ -1,8 +1,10 @@
 import "../../export";
 import styles from "./scanPage.css"
 import { loadCss } from "../../utilities/styles";
-import { socket } from "../../utilities/serverClientSide";
-import { state } from "../../store";
+//import { socket } from "../../utilities/serverClientSide";
+import { dispatch, state } from "../../store";
+import { changeScreen, updateRoomId } from "../../store/actions";
+import { ScreensTypes } from "../../types/screens";
 
 export class scanPage extends HTMLElement {
     constructor() {
@@ -29,12 +31,22 @@ export class scanPage extends HTMLElement {
             const nextButton = this.ownerDocument.createElement("button")
             nextButton.innerText = "Continuar"
             pageContainer.appendChild(nextButton)
-            nextButton.addEventListener('click', () => {
+            nextButton.addEventListener('click', async () => {
+                console.log(codeInput.value)
                 if (codeInput.value !== "") {
-                    socket.emit('enteringRoom', JSON.stringify({
-                        userId: state.userId,
-                        roomId: codeInput.value
-                    }))
+                    const response = await fetch(`http://localhost:5500/rooms/${codeInput.value}`)
+                    const roomData = await response.json()
+                    console.log(roomData)
+                    if (roomData.data !== null) {
+                        dispatch(
+                            updateRoomId(codeInput.value, false)
+                        )
+                        dispatch(
+                            changeScreen(ScreensTypes.whoAreYouPage, true)
+                        )
+                    } else {
+                        alert("Es nulo")
+                    }
                 } else {
                     alert('Code Input is Empty')
                 }

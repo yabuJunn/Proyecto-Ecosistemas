@@ -2,5 +2,8 @@ export enum ScreensTypes {
     "landingPage" = "landingPage",
     "scanPage" = "scanPage",
     "mainPage" = "mainPage",
-    "whoAreYouPage" = "whoAreYouPage"
+    "whoAreYouPage" = "whoAreYouPage",
+    "waitingForOtherPage" = "waitingForOtherPage",
+    "successfulConnectionPage" = "successfulConnectionPage",
+    "dressingRoomPage" = "dressingRoomPage"
 }
