@@ -19,4 +19,5 @@ export { loadingIcon } from "./components/loadingComponent/loadingComponent" // 
 
 //Successful Conection Page
 
-export { successfulConnectionPage } from "./pages/successfulConnectionPage/successfulConnectionPage"
+export { successfulConnectionPage } from "./pages/successfulConnectionPage/successfulConnectionPage" // successful_connection-page
+export { successfulIcon } from "./components/successfulComponent/successfulComponent"

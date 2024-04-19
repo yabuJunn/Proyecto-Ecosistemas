@@ -34,8 +34,8 @@ export class successfulConnectionPage extends HTMLElement {
             text.innerText = "Conexión exitosa"
             contentContainer.appendChild(text)
 
-            const loadingIcon = this.ownerDocument.createElement("loading-icon")
-            contentContainer.appendChild(loadingIcon)
+            const successfulIcon = this.ownerDocument.createElement("successful-icon")
+            contentContainer.appendChild(successfulIcon)
 
             // const something = this.ownerDocument.createElement('h1');
             // something.innerText = "Own Scaffolding"
